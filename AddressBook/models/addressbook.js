@@ -34,15 +34,13 @@ const AddressBookSchema = mongoose.Schema({
     phoneNumber: {
         type: String,
         required: true,
-        validate: /^[A-Z]{1}[a-z]{2,}$/
+        validate: /^[0-9]{10}$/
     },
     emailId: {
         type: String,
         required: true,
         validate: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     },
-}, {
-    timestamps: true
 });
 
 module.exports = mongoose.model('AddressBook', AddressBookSchema);

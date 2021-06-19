@@ -1,3 +1,6 @@
+const AddressBook = require('../controller/addressbook.js');
+
 module.exports = (app) => {
-    const employeePayroll = require('../controllers/addressbook.js');
+    // Create a new employeespayroll
+    app.post('/addressBook', AddressBook.create);
 }
