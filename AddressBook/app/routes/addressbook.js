@@ -6,4 +6,7 @@ module.exports = (app) => {
 
     // Retrive All Address Book Data
     app.get('/addressBook', AddressBook.findAll);
+
+    // Retrieve a single Address Book Data 
+    app.get('/addressBook/:addressBookId', AddressBook.findOne);
 }

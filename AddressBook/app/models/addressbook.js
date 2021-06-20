@@ -84,5 +84,18 @@ class addBookModel {
             return callBack(null, data);
         });
     }
+
+    /* @Description - FindById method Created To Finding Data By Id.
+     * @param  data sent from Service
+     * @return callback is used to callback Services includes error message or data
+     */
+    findById = (addressBookId, callBack) => {
+        addressBookModel.findById(addressBookId, (error, data) => {
+            if (error) {
+                return callBack(error, null);
+            }
+            return callBack(null, data);
+        });
+    }
 }
 module.exports = new addBookModel();

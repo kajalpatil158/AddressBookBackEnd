@@ -55,6 +55,27 @@ class AddressBook {
             })
         })
     };
+
+    /* @Description - FindOne Address Book Data Retrive Address Book Data By Id
+     * @param req Is Used To Send Http Request
+     * @param res Is Used To Take A Http Responce.
+     */
+
+    findOne = (req, res) => {
+        let addressDataId = req.params.addressBookId;
+        addressBookService.findById(addressDataId, (error, addressBookData) => {
+            if (error) {
+                return res.status(404).send({
+                    success: false,
+                    message: "some error is occurred"
+                })
+            }
+            res.send({
+                success: true,
+                data: addressBookData
+            })
+        })
+    }
 }
 
 module.exports = new AddressBook();
