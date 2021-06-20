@@ -56,5 +56,18 @@ class AddressBookService {
             return callBack(null, data);
         })
     }
+
+    /* @Description - Delete method is created.
+     * @param- Address Book Data send from controller
+     * @return callback is used to callback controller
+     */
+    deleteById = (addressBookId, callBack) => {
+        AddressModel.deleteById(addressBookId, (error, data) => {
+            if (error) {
+                return callBack(error.null);
+            }
+            return callBack(null, data);
+        })
+    }
 }
 module.exports = new AddressBookService();

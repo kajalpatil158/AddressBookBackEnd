@@ -12,4 +12,8 @@ module.exports = (app) => {
 
     // Update a Address Book Data 
     app.put('/update/:addressBookId', AddressBook.update);
+
+    // Delete a Address Book Data
+    app.delete('/delete/:addressBookId', AddressBook.delete);
+
 }

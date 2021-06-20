@@ -120,5 +120,18 @@ class addBookModel {
                 return callBack(null, data);
             });
     }
+
+    /* @Description - Update method Created To Updated A Data
+     * @param data sent from Service
+     * @return callback is used to callback Services includes error message or data
+     */
+    deleteById = (addressBookId, callBack) => {
+        addressBookModel.findByIdAndRemove(addressBookId, (error, data) => {
+            if (error) {
+                return callBack(error, null);
+            }
+            return callBack(null, data);
+        });
+    }
 }
 module.exports = new addBookModel();

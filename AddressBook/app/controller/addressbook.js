@@ -97,6 +97,26 @@ class AddressBook {
             })
         })
     };
+
+    /* @Description - Delete Address Book Data Update Emp Data By Id
+     * @param req Is Used To Send Http Request
+     * @param res Is Used To Take A Http Responce.
+     */
+    delete = (req, res) => {
+        let addressDataId = req.params.addressBookId;
+        addressBookService.deleteById(addressDataId, (error, addressBookData) => {
+            if (error) {
+                return res.status(404).send({
+                    success: false,
+                    message: "Address Book Id not found"
+                })
+            }
+            res.send({
+                success: true,
+                message: "Address Book Data Deleted Successfully"
+            })
+        })
+    }
 }
 
 module.exports = new AddressBook();
