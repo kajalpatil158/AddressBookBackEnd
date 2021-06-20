@@ -14,5 +14,14 @@ class AddressBookService {
             return callBack(null, data);
         })
     }
+
+    findAll = (callBack) => {
+        AddressModel.findAll((error, data) => {
+            if (error) {
+                return callBack(error.null);
+            }
+            return callBack(null, data);
+        })
+    }
 }
 module.exports = new AddressBookService();

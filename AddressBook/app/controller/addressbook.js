@@ -34,6 +34,22 @@ class AddressBook {
             })
         })
     }
+
+    findAll = (req, res) => {
+        addressBookService.findAll((error, addressBookData) => {
+            if (error) {
+                return res.status(404).send({
+                    success: false,
+                    message: "Error Occured While Retriving Data"
+                })
+            }
+            res.send({
+                success: true,
+                message: "All Address Book Data Is Here",
+                data: addressBookData
+            })
+        })
+    };
 }
 
 module.exports = new AddressBook();
