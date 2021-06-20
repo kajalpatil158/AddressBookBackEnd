@@ -39,13 +39,18 @@ const AddressBookSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        validate: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
     }
 }, {
     timestamps: true
 });
 const addressBookModel = mongoose.model('AddressBook', AddressBookSchema);
 class addBookModel {
+    /* @Description - Create method Created To Save Data.
+     * @param addressBookData is data sent from Service.
+     * @return callback is used to callback Services includes error message or data
+     */
     create = (addressBookData, callBack) => {
         console.log(addressBookData);
         const addressbook = new addressBookModel({
@@ -65,6 +70,11 @@ class addBookModel {
             return callBack(null, data);
         });
     }
+
+    /* @Description - FindAll method Created To Find A Employee Payroll Data.
+     * @param  data sent from Service
+     * @return callback is used to callback Services includes error message or data
+     */
 
     findAll = (callBack) => {
         addressBookModel.find((error, data) => {

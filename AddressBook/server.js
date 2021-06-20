@@ -7,7 +7,6 @@ const app = express();
 const dbconnection = require('./config/dbconfig.js');
 dbconnection();
 
-
 // parse requests 
 app.use(express.json())
 

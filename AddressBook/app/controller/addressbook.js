@@ -4,7 +4,7 @@ const addressBookData = require('../middleware/validation.js');
 
 class AddressBook {
     /**
-     * @Description- Create Address Book Data.
+     * @Description - Create Address Book Data.
      * @param req is request sent from http
      * @param res is used to send the response
      */
@@ -34,6 +34,11 @@ class AddressBook {
             })
         })
     }
+
+    /* @Description - Find Address Book Data Retrive All Emp Data
+     * @param req is request sent from http
+     * @param res is used to send the response
+     */
 
     findAll = (req, res) => {
         addressBookService.findAll((error, addressBookData) => {

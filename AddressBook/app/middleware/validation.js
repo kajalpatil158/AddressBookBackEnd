@@ -10,7 +10,6 @@ class addressBookData {
         phoneNumber: joi.string().max(25).required(),
         emailId: joi.string().email().required(),
         password: joi.string().regex(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')).required(),
-
     });
 }
 module.exports = new addressBookData();
