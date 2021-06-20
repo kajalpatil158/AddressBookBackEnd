@@ -9,7 +9,7 @@ class AddressBookService {
         //console.log()
         AddressModel.create(addressbookData, (error, data) => {
             if (error) {
-                return callBack(errror.null);
+                return callBack(error.null);
             }
             return callBack(null, data);
         })
