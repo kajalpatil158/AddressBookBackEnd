@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const helper = require('../middleware/helper.js');
 
 const AddressBookSchema = mongoose.Schema({
     firstName: {
@@ -117,6 +119,15 @@ class addBookModel {
         addressBookModel.findByIdAndRemove(addressBookId, (error, data) => {
             return (error) ? callBack(error, null) : callBack(null, data);
         });
+    }
+
+    getUserByEmail = (credentials, callBack) => {
+        addressBookModel.findOne({ "emailId": credentials.emailId }, (error, data) => {
+            if (error) {
+                return callback(error, null)
+            }
+            return (!data) ? callBack("User Not Exist ", null) : callBack(null, data);
+        })
     }
 }
 module.exports = new addBookModel();

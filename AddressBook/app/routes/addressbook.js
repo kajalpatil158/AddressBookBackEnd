@@ -1,4 +1,5 @@
 const AddressBook = require('../controller/addressbook.js');
+const tokenVerified = require('../middleware/helper.js');
 
 module.exports = (app) => {
     // Create a new Address Book Data
@@ -15,5 +16,8 @@ module.exports = (app) => {
 
     // Delete a Address Book Data
     app.delete('/delete/:addressBookId', AddressBook.delete);
+
+    // Login JWT Authentication
+    app.post('/login', AddressBook.login);
 
 }
