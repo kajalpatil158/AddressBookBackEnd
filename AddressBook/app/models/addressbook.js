@@ -37,6 +37,10 @@ const AddressBookSchema = mongoose.Schema({
         unique: true,
         validate: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+[.]+[a-zA-Z]+$/
     },
+    password: {
+        type: String,
+        required: true
+    }
 }, {
     timestamps: true
 });
@@ -52,6 +56,7 @@ class addBookModel {
             state: addressBookData.state,
             phoneNumber: addressBookData.phoneNumber,
             emailId: addressBookData.emailId,
+            password: addressBookData.password,
         });
         addressbook.save({}, (error, data) => {
             if (error) {
