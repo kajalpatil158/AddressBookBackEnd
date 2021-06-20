@@ -7,6 +7,8 @@ const app = express();
 const dbconnection = require('./config/dbconfig.js');
 dbconnection();
 
+require('dotenv').config();
+
 // parse requests 
 app.use(express.json())
 
