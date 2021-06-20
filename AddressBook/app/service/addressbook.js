@@ -12,11 +12,8 @@ class AddressBookService {
             console.log(addressbookData, "Service");
             //console.log()
             AddressModel.create(addressbookData, (error, data) => {
-                if (error) {
-                    return callBack(error.null);
-                }
-                return callBack(null, data);
-            })
+                return (error) ? callBack(error, null) : callBack(null, data);
+            });
         }
         /* @Description - finAll method is created.
          * @param- addressBookData send from controller
@@ -24,11 +21,8 @@ class AddressBookService {
          */
     findAll = (callBack) => {
         AddressModel.findAll((error, data) => {
-            if (error) {
-                return callBack(error.null);
-            }
-            return callBack(null, data);
-        })
+            return (error) ? callBack(error, null) : callBack(null, data);
+        });
     }
 
     /* @Description - findById method is created.
@@ -37,11 +31,8 @@ class AddressBookService {
      */
     findById = (addressBookId, callBack) => {
         AddressModel.findById(addressBookId, (error, data) => {
-            if (error) {
-                return callBack(error.null);
-            }
-            return callBack(null, data);
-        })
+            return (error) ? callBack(error, null) : callBack(null, data);
+        });
     }
 
     /* @Description - updateById method is created.
@@ -50,11 +41,8 @@ class AddressBookService {
      */
     updateByID = (addressBookId, newData, callBack) => {
         AddressModel.updateById(addressBookId, newData, (error, data) => {
-            if (error) {
-                return callBack(error.null);
-            }
-            return callBack(null, data);
-        })
+            return (error) ? callBack(error, null) : callBack(null, data);
+        });
     }
 
     /* @Description - Delete method is created.
@@ -63,11 +51,8 @@ class AddressBookService {
      */
     deleteById = (addressBookId, callBack) => {
         AddressModel.deleteById(addressBookId, (error, data) => {
-            if (error) {
-                return callBack(error.null);
-            }
-            return callBack(null, data);
-        })
+            return (error) ? callBack(error, null) : callBack(null, data);
+        });
     }
 }
 module.exports = new AddressBookService();

@@ -64,10 +64,7 @@ class addBookModel {
             password: addressBookData.password,
         });
         addressbook.save({}, (error, data) => {
-            if (error) {
-                return callBack(error, null);
-            }
-            return callBack(null, data);
+            return (error) ? callBack(error, null) : callBack(null, data);
         });
     }
 
@@ -78,10 +75,7 @@ class addBookModel {
 
     findAll = (callBack) => {
         addressBookModel.find((error, data) => {
-            if (error) {
-                return callBack(error, null);
-            }
-            return callBack(null, data);
+            return (error) ? callBack(error, null) : callBack(null, data);
         });
     }
 
@@ -91,10 +85,7 @@ class addBookModel {
      */
     findById = (addressBookId, callBack) => {
         addressBookModel.findById(addressBookId, (error, data) => {
-            if (error) {
-                return callBack(error, null);
-            }
-            return callBack(null, data);
+            return (error) ? callBack(error, null) : callBack(null, data);
         });
     }
 
@@ -114,10 +105,7 @@ class addBookModel {
                 password: newData.password,
             }, { new: true },
             (error, data) => {
-                if (error) {
-                    return callBack(error, null);
-                }
-                return callBack(null, data);
+                return (error) ? callBack(error, null) : callBack(null, data);
             });
     }
 
@@ -127,10 +115,7 @@ class addBookModel {
      */
     deleteById = (addressBookId, callBack) => {
         addressBookModel.findByIdAndRemove(addressBookId, (error, data) => {
-            if (error) {
-                return callBack(error, null);
-            }
-            return callBack(null, data);
+            return (error) ? callBack(error, null) : callBack(null, data);
         });
     }
 }
