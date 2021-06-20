@@ -97,5 +97,28 @@ class addBookModel {
             return callBack(null, data);
         });
     }
+
+    /* @Description - Update method Created To Updated A Data
+     * @param data sent from Service
+     * @return callback is used to callback Services includes error message or data
+     */
+    updateById = (newData, addressBookId, callBack) => {
+        addressBookModel.findByIdAndUpdate(addressBookId, {
+                firstName: newData.firstName,
+                lastName: newData.lastName,
+                address: newData.address,
+                city: newData.city,
+                state: newData.state,
+                phoneNumber: newData.phoneNumber,
+                emailId: newData.emailId,
+                password: newData.password,
+            }, { new: true },
+            (error, data) => {
+                if (error) {
+                    return callBack(error, null);
+                }
+                return callBack(null, data);
+            });
+    }
 }
 module.exports = new addBookModel();

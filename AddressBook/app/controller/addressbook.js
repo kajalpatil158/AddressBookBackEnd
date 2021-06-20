@@ -76,6 +76,27 @@ class AddressBook {
             })
         })
     }
+
+    /* @Description - Update Employee Payroll Data Update Emp Data By Id
+     * @param req Is Used To Send Http Request
+     * @param res Is Used To Take A Http Responce.
+     */
+    update = (req, res) => {
+        let addressDataId = req.params.addressBookId;
+        addressBookService.updateByID(req.body, addressDataId, (error, newData) => {
+            if (error) {
+                return res.status(404).send({
+                    success: false,
+                    message: "Address Book Data Not Finding With Given Id "
+                });
+            }
+            res.send({
+                success: true,
+                message: "Address Book Data updated successfully",
+                data: newData
+            })
+        })
+    };
 }
 
 module.exports = new AddressBook();

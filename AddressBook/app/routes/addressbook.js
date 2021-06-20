@@ -9,4 +9,7 @@ module.exports = (app) => {
 
     // Retrieve a single Address Book Data 
     app.get('/addressBook/:addressBookId', AddressBook.findOne);
+
+    // Update a Address Book Data 
+    app.put('/update/:addressBookId', AddressBook.update);
 }
