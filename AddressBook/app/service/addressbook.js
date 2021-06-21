@@ -2,7 +2,7 @@ const AddressModel = require('../models/addressbook.js');
 const { genSaltSync, hashSync } = require("bcrypt");
 const bcrypt = require('bcrypt');
 const { sign } = require('jsonwebtoken');
-const helper = require('../middleware/helper.js');
+require("dotenv").config();
 
 class AddressBookService {
     /* @Description - create method is created.
@@ -66,6 +66,7 @@ class AddressBookService {
             } else if (result = bcrypt.compareSync(credentials.password, data.password)) {
                 //data.password = undefined;
                 const jsontoken = sign({ result: data }, process.env.JWT_KEY, { expiresIn: "1h" });
+                //console.log(jsontoken);
                 return callback(null, jsontoken);
             }
             return callback("Invalid Email", null);

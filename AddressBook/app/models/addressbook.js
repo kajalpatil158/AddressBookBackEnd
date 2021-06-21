@@ -124,7 +124,7 @@ class addBookModel {
     getUserByEmail = (credentials, callBack) => {
         addressBookModel.findOne({ "emailId": credentials.emailId }, (error, data) => {
             if (error) {
-                return callback(error, null)
+                return callBack(error, null)
             }
             return (!data) ? callBack("User Not Exist ", null) : callBack(null, data);
         })

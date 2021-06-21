@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 // create express app
 const app = express();
@@ -6,8 +7,6 @@ const app = express();
 //Connect to DB
 const dbconnection = require('./config/dbconfig.js');
 dbconnection();
-
-require('dotenv').config();
 
 // parse requests 
 app.use(express.json())

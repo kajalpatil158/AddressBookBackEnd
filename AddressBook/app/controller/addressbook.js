@@ -1,6 +1,7 @@
 const addressBookService = require('../service/addressbook.js');
 const addressBookModel = require('../models/addressbook.js');
 const addressBookData = require('../middleware/validation.js');
+const { getUserByEmail } = require('../models/addressbook.js');
 
 class AddressBook {
     /**
