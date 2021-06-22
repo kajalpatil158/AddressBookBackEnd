@@ -1,5 +1,6 @@
 const AddressBook = require('../controller/addressbook.js');
-const tokenVerified = require('../middleware/helper.js');
+const UserData = require('../controller/userData.js')
+    //const tokenVerified = require('../middleware/helper.js');
 
 module.exports = (app) => {
     // Create a new Address Book Data
@@ -19,5 +20,7 @@ module.exports = (app) => {
 
     // Login JWT Authentication
     app.post('/login', AddressBook.login);
+
+    app.post('/adduser', UserData.create);
 
 }

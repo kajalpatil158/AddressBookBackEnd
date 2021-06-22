@@ -13,7 +13,6 @@ class AddressBookService {
             const salt = genSaltSync(10);
             addressbookData.password = hashSync(addressbookData.password, salt);
             console.log(addressbookData, "Service");
-            //console.log()
             AddressModel.create(addressbookData, (error, data) => {
                 return (error) ? callBack(error, null) : callBack(null, data);
             });
@@ -60,7 +59,7 @@ class AddressBookService {
 
     getUserByEmail = (credentials, callback) => {
         AddressModel.getUserByEmail(credentials, (error, data) => {
-            let result = null;
+            let result;
             if (error) {
                 return callback(error, null);
             } else if (result = bcrypt.compareSync(credentials.password, data.password)) {
