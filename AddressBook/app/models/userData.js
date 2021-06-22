@@ -29,8 +29,8 @@ const UserSchema = mongoose.Schema({
 const userModel = mongoose.model('UserSchema', UserSchema);
 class userDataModel {
     /* @Description - Create method Created To Save Data.
-     * @param addressBookData is data sent from Service.
-     * @return callback is used to callback Services includes error message or data
+     * @param user data is data sent from Service.
+     * @return callback is used to callback service includes error message or data
      */
     create = (userData, callBack) => {
         const user = new userModel({

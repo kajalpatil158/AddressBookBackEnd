@@ -2,7 +2,7 @@ const UserModel = require('../models/userData.js');
 
 class UserService {
     /* @Description - create method is created.
-     * @param- addressBookData send from controller
+     * @param- user data send from controller
      * @return callback is used to callback controller
      */
     create = (userData, callBack) => {
