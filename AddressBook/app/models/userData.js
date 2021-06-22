@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const helper = require('../middleware/helper.js');
 
 const UserSchema = mongoose.Schema({
     firstName: {
