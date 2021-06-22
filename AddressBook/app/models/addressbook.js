@@ -121,13 +121,5 @@ class addBookModel {
         });
     }
 
-    getUserByEmail = (credentials, callBack) => {
-        addressBookModel.findOne({ "emailId": credentials.emailId }, (error, data) => {
-            if (error) {
-                return callBack(error, null)
-            }
-            return (!data) ? callBack("User Not Exist ", null) : callBack(null, data);
-        })
-    }
 }
 module.exports = new addBookModel();

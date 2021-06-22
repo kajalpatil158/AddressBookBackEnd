@@ -18,9 +18,6 @@ module.exports = (app) => {
     // Delete a Address Book Data
     app.delete('/delete/:addressBookId', AddressBook.delete);
 
-    // Login JWT Authentication
-    app.post('/login', AddressBook.login);
-
     app.post('/adduser', UserData.create);
 
 }
