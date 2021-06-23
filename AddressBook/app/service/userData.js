@@ -19,10 +19,14 @@ class UserService {
             let result;
             if (error) {
                 return callback(error, null);
-            } else if (result = bcrypt.compareSync(credentials.password, data.password)) {
+            }
+
+            // encrypt credentials.password
+            // compare encrypted with data.password
+            if (credentials.password == data.password) {
                 //data.password = undefined;
                 const jsontoken = sign({ result: data }, process.env.JWT_KEY, { expiresIn: "1h" });
-                //console.log(jsontoken);
+                console.log(jsontoken);
                 return callback(null, jsontoken);
             }
             return callback("Invalid Email", null);

@@ -33,6 +33,8 @@ class userDataModel {
      * @param user data is data sent from Service.
      * @return callback is used to callback service includes error message or data
      */
+
+
     create = (userData, callBack) => {
         const user = new userModel({
             firstName: userData.firstName,
@@ -46,7 +48,7 @@ class userDataModel {
     }
 
     getUserByEmail = (credentials, callBack) => {
-        userDataModel.findOne({ "emailId": credentials.emailId }, (error, data) => {
+        userModel.findOne({ "emailId": credentials.emailId }, (error, data) => {
             if (error) {
                 return callBack(error, null)
             }

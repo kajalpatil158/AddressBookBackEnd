@@ -1,6 +1,7 @@
 const joi = require("@hapi/joi");
 
 class validateFields {
+
     addressbookData = joi.object({
         firstName: joi.string().max(25).required(),
         lastName: joi.string().max(25).required(),
@@ -18,5 +19,6 @@ class validateFields {
         emailId: joi.string().email().required(),
         password: joi.string().regex(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')).required(),
     });
+
 }
 module.exports = new validateFields();

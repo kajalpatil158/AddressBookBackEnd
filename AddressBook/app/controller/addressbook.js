@@ -117,23 +117,5 @@ class AddressBook {
             })
         })
     }
-
-    login = (req, res) => {
-        let userInfo = req.body;
-        addressBookService.getUserByEmail(userInfo, (error, data) => {
-            if (error) {
-                return res.status(404).send({
-                    success: false,
-                    message: error
-                });
-            }
-            res.send({
-                success: true,
-                message: "User Login Successfull!!",
-                token: data
-            });
-
-        })
-    }
 }
 module.exports = new AddressBook();

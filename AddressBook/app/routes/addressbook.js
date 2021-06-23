@@ -20,4 +20,6 @@ module.exports = (app) => {
 
     app.post('/adduser', UserData.create);
 
+    app.post('/login', UserData.login);
+
 }

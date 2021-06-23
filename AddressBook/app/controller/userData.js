@@ -1,7 +1,6 @@
 const userService = require('../service/userData.js');
-const userModel = require('../models/userData.js');
 const validateData = require('../middleware/validation.js');
-
+const userField = require('../middleware/userData.js')
 class UserInfo {
     /**
      * @Description - Create User Data.
@@ -10,6 +9,7 @@ class UserInfo {
      */
     create = (req, res) => {
         var validationUser = validateData.userData.validate(req.body);
+
         if (validationUser.error) {
             return res.status(400).send({
                 success: false,
@@ -33,8 +33,12 @@ class UserInfo {
         })
     }
     login = (req, res) => {
-        let userInfo = req.body;
-        userService.getUserByEmail(userInfo, (error, data) => {
+        console.log('req.body: ' + JSON.stringify(req.body));
+        let userInfo = userField.userData.validate(req.body);
+        console.log('userInDatafo' + userInfo);
+        console.log('req.body: ' + JSON.stringify(userInfo));
+        console.log('req.body: ' + JSON.stringify(userInfo.value));
+        userService.getUserByEmail(userInfo.value, (error, validationUser) => {
             if (error) {
                 return res.status(404).send({
                     success: false,
@@ -44,9 +48,8 @@ class UserInfo {
             res.send({
                 success: true,
                 message: "User Login Successfull!!",
-                token: data
+                token: validationUser
             });
-
         })
     }
 }
