@@ -33,11 +33,7 @@ class UserInfo {
         })
     }
     login = (req, res) => {
-        console.log('req.body: ' + JSON.stringify(req.body));
         let userInfo = userField.userData.validate(req.body);
-        console.log('userInDatafo' + userInfo);
-        console.log('req.body: ' + JSON.stringify(userInfo));
-        console.log('req.body: ' + JSON.stringify(userInfo.value));
         userService.getUserByEmail(userInfo.value, (error, validationUser) => {
             if (error) {
                 return res.status(404).send({

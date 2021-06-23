@@ -1,4 +1,5 @@
 const UserModel = require('../models/userData.js');
+const { genSaltSync, hashSync } = require("bcrypt");
 const bcrypt = require('bcrypt');
 const { sign } = require('jsonwebtoken');
 require("dotenv").config();
@@ -9,6 +10,8 @@ class UserService {
      * @return callback is used to callback controller
      */
     create = (userData, callBack) => {
+        const salt = genSaltSync(10);
+        userData.password = hashSync(userData.password, salt);
         UserModel.create(userData, (error, data) => {
             return (error) ? callBack(error, null) : callBack(null, data);
         });
@@ -20,10 +23,9 @@ class UserService {
             if (error) {
                 return callback(error, null);
             }
-
             // encrypt credentials.password
             // compare encrypted with data.password
-            if (credentials.password == data.password) {
+            if (result = bcrypt.compareSync(credentials.password, data.password)) {
                 //data.password = undefined;
                 const jsontoken = sign({ result: data }, process.env.JWT_KEY, { expiresIn: "1h" });
                 console.log(jsontoken);
