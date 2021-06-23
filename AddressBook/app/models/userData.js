@@ -36,17 +36,20 @@ class userDataModel {
 
 
     create = (userData, callBack) => {
-        const user = new userModel({
-            firstName: userData.firstName,
-            lastName: userData.lastName,
-            emailId: userData.emailId,
-            password: userData.password,
-        });
-        user.save({}, (error, data) => {
-            return (error) ? callBack(error, null) : callBack(null, data);
-        });
-    }
-
+            const user = new userModel({
+                firstName: userData.firstName,
+                lastName: userData.lastName,
+                emailId: userData.emailId,
+                password: userData.password,
+            });
+            user.save({}, (error, data) => {
+                return (error) ? callBack(error, null) : callBack(null, data);
+            });
+        }
+        /* @Description- getUserByEmail method is creted
+         * @param user data is data sent from Service.
+         * @return callback is used to callback service includes error message or data
+         */
     getUserByEmail = (credentials, callBack) => {
         userModel.findOne({ "emailId": credentials.emailId }, (error, data) => {
             if (error) {

@@ -10,13 +10,16 @@ class UserService {
      * @return callback is used to callback controller
      */
     create = (userData, callBack) => {
-        const salt = genSaltSync(10);
-        userData.password = hashSync(userData.password, salt);
-        UserModel.create(userData, (error, data) => {
-            return (error) ? callBack(error, null) : callBack(null, data);
-        });
-    }
-
+            const salt = genSaltSync(10);
+            userData.password = hashSync(userData.password, salt);
+            UserModel.create(userData, (error, data) => {
+                return (error) ? callBack(error, null) : callBack(null, data);
+            });
+        }
+        /* @Description - getUserByEmail method is created for login a user using password and email.
+         * @param- user data send from controller
+         * @return callback is used to callback controller
+         */
     getUserByEmail = (credentials, callback) => {
         UserModel.getUserByEmail(credentials, (error, data) => {
             let result;

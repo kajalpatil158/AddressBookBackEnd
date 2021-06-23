@@ -32,6 +32,12 @@ class UserInfo {
             })
         })
     }
+
+    /**
+     * @Description - login User Data.
+     * @param req is request sent from http
+     * @param res is used to send the response
+     */
     login = (req, res) => {
         let userInfo = userField.userData.validate(req.body);
         userService.getUserByEmail(userInfo.value, (error, validationUser) => {
