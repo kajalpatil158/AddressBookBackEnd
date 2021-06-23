@@ -20,22 +20,25 @@ class UserService {
          * @param- user data send from controller
          * @return callback is used to callback controller
          */
-    getUserByEmail = (credentials, callback) => {
-        UserModel.getUserByEmail(credentials, (error, data) => {
-            let result;
-            if (error) {
-                return callback(error, null);
-            }
-            // encrypt credentials.password
-            // compare encrypted with data.password
-            if (result = bcrypt.compareSync(credentials.password, data.password)) {
-                //data.password = undefined;
-                const jsontoken = sign({ result: data }, process.env.JWT_KEY, { expiresIn: "1h" });
-                console.log(jsontoken);
-                return callback(null, jsontoken);
-            }
-            return callback("Invalid Email", null);
-        });
+    getUserByEmail = (credentials) => {
+        return new Promise((resolve, reject) => {
+            UserModel.getUserByEmail(credentials, (error, data) => {
+                if (error) {
+                    reject(error) // calling `reject` will cause the promise to fail with or without the error passed as an argument
+                    return;
+                }
+                // encrypt credentials.password
+                // compare encrypted with data.password
+                let result = bcrypt.compareSync(credentials.password, data.password);
+                if (result) {
+                    const jsontoken = sign({ result: data }, process.env.JWT_KEY, { expiresIn: "1h" });
+                    console.log(jsontoken);
+                    resolve(jsontoken)
+                    return;
+                }
+                return reject("Invalid Email");
+            });
+        })
     }
 }
 

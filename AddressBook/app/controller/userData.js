@@ -40,19 +40,18 @@ class UserInfo {
      */
     login = (req, res) => {
         let userInfo = userField.userData.validate(req.body);
-        userService.getUserByEmail(userInfo.value, (error, validationUser) => {
-            if (error) {
-                return res.status(404).send({
-                    success: false,
-                    message: error
-                });
-            }
+        userService.getUserByEmail(userInfo.value).then((data) => {
             res.send({
                 success: true,
                 message: "User Login Successfull!!",
-                token: validationUser
+                token: data
             });
-        })
+        }).catch((err) => {
+            res.status(404).send({
+                success: false,
+                message: error
+            });
+        });
     }
 }
 
