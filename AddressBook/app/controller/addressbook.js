@@ -43,7 +43,7 @@ class AddressBook {
     findAll = (req, res) => {
         addressBookService.findAll((error, addressBookData) => {
             if (error) {
-                return res.status(404).send({
+                return res.status(400).send({
                     success: false,
                     message: "Error Occured While Retriving Data"
                 })

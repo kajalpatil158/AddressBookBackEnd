@@ -121,4 +121,18 @@ describe("/GET /findAll", () => {
                 done();
             });
     });
+
+    it("giventoken_Wheninvalid_Shouldnotretrivedatawithstatus=404andsuccess=false", done => {
+        chai
+            .request(server)
+            .get("/addressBook")
+            .set('Authorization', 'bearar ' + token.slice)
+            .end((err, res) => {
+                res.should.have.status(400);
+                res.body.should.have.property('success').eq(false);
+                res.body.should.have.property('message');
+                done();
+            });
+    });
+
 });
