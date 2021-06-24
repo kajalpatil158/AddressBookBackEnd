@@ -193,4 +193,18 @@ describe("/put /update /Id", () => {
                 done();
             });
     });
+    it("givendatacheckwithtoken_Whentokenisinvalid_Shouldreturnstatus=404andsuccess=false", done => {
+        const newData = addressbooktest.AddressBookData;
+        chai
+            .request(server)
+            .put("/update/" + addressbooktest.AddressBookDataWrongId.Id)
+            .set('Authorization', 'bearar ' + token)
+            .send(newData)
+            .end((error, res) => {
+                res.should.have.status(404);
+                res.body.should.have.property('success').eq(false);
+                res.body.should.have.property('message').eq("Address Book Data Not Finding With Given Id ");
+                done();
+            });
+    });
 });
