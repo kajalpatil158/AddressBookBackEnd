@@ -6,6 +6,7 @@ const app = express();
 
 //Connect to DB
 const dbconnection = require('./config/dbconfig.js');
+const logger = require('./config/logger');
 dbconnection();
 
 // parse requests 
@@ -20,5 +21,5 @@ app.get('/', (req, res) => {
 require('./app/routes/addressbook.js')(app);
 
 module.exports = app.listen(5050, () => {
-    console.log('Application Is Listening On Port 5050');
+    logger.info('Info', 'Application Is Listening On Port 5050');
 });

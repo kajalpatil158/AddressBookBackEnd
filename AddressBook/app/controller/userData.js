@@ -9,7 +9,6 @@ class UserInfo {
      */
     create = (req, res) => {
         var validationUser = validateData.userData.validate(req.body);
-
         if (validationUser.error) {
             return res.status(400).send({
                 success: false,
@@ -25,7 +24,7 @@ class UserInfo {
                     message: "Eroor Occured While Creating Address Book Data",
                 })
             }
-            res.status(201).send({
+            res.status(20).send({
                 success: true,
                 message: "Address Book Data Is Added",
                 data: validationUser
@@ -49,7 +48,7 @@ class UserInfo {
         }).catch((err) => {
             res.status(404).send({
                 success: false,
-                message: error
+                message: "error"
             });
         });
     }

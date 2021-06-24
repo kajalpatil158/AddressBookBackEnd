@@ -18,8 +18,10 @@ module.exports = (app) => {
     // Delete a Address Book Data
     app.delete('/delete/:addressBookId', AddressBook.delete);
 
+    // Created And Added User
     app.post('/adduser', UserData.create);
 
+    // Login User
     app.post('/login', UserData.login);
 
 }
