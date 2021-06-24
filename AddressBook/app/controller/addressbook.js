@@ -27,7 +27,7 @@ class AddressBook {
                     message: "Eroor Occured While Creating Address Book Data",
                 })
             }
-            res.status(201).send({
+            res.status(200).send({
                 success: true,
                 message: "Address Book Data Is Added",
                 data: validationAddressBook
