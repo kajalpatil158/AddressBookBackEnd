@@ -37,21 +37,7 @@ describe('POST/login', () => {
 });
 
 describe('POST/adduser', () => {
-    /* it('givenemployeeis_Whenadded_Shouldreturnstatus=200andsuccess=trueandmessage=SuccessfullyAdded', (done) => {
-         const addressbookData = addressbooktest.userData;
-         console.log(addressbookData);
-         chai.request(server)
-             .post('/adduser')
-             .send(addressbookData)
-             .end((error, res) => {
-                 res.should.have.status(200);
-                 res.body.should.be.property('success').eq(true);
-                 res.body.should.be.property('message').eq("Address Book Data Is Added");
-                 done();
-             });
-     });*/
-
-    it('givenemployeeisnot_Whenadded_Shouldreturnstatus=404andsuccess=false', (done) => {
+    it('givenuserisnot_Whenadded_Shouldreturnstatus=404andsuccess=false', (done) => {
         const addressbookData = addressbooktest.userWrongData;
         chai.request(server)
             .post('/adduser')
@@ -64,4 +50,60 @@ describe('POST/adduser', () => {
             });
     });
 
+
+    /*  it('givenuserisnot_Whenadded_Shouldreturnstatus=404andsuccess=false', (done) => {
+          const addressbookData = addressbooktest.userWrongData;
+          chai.request(server)
+              .post('/adduser')
+              .send(addressbookData)
+              .end((error, res) => {
+                  res.should.have.status(400);
+                  res.body.should.be.property('success').eq(false);
+                  res.body.should.be.property('message')
+                  done();
+              });
+      });
+
+
+      /*it('givenemployeeis_Whenadded_Shouldreturnstatus=200andsuccess=trueandmessage=SuccessfullyAdded', (done) => {
+          const addressbookData = addressbooktest.userData;
+          console.log(addressbookData);
+          chai.request(server)
+              .post('/adduser')
+              .send(addressbookData)
+              .end((error, res) => {
+                  res.should.have.status(200);
+                  res.body.should.be.property('success').eq(true);
+                  res.body.should.be.property('message').eq("User Data Is Added");
+                  done();
+              });
+      });
+
+      it('givenuserisnot_Whenadded_Shouldreturnstatus=404andsuccess=false', (done) => {
+          const addressbookData = addressbooktest.userData;
+          chai.request(server)
+              .post('/adduser')
+              .send(addressbookData)
+              .end((error, res) => {
+                  res.should.have.status(200);
+                  res.body.should.be.property('success').eq(true);
+                  res.body.should.be.property('message');
+                  done();
+                  s
+              });
+      });*/
+});
+
+let token = '';
+console.log(token);
+beforeEach(done => {
+    chai
+        .request(server)
+        .post("/login")
+        .send(addressbooktest.userLoginData)
+        .end((err, res) => {
+            token = res.body.token;
+            res.should.have.status(200);
+            done();
+        });
 });
