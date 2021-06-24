@@ -24,12 +24,12 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
   You can find more information about the installation on the [official Node.js website](https://nodejs.org/) and the [official NPM website](https://npmjs.org/).
 
 ## Install
- $ git clone https://github.com/kajalpatil158/AddressBookBackEnd
- $ cd AddressBook
- $ npm install
+$ git clone https://github.com/kajalpatil158/AddressBookBackEnd
+$ cd AddressBook
+$ npm install
     
  ## Configure app
- after installation create '.env' file in EmpPayroll root path and then add the "databaseurl, port" environment variables.
+ after installation create '.env' file in AddressBook root path and then add the "databaseurl, port" environment variables.
  
  ## Running the project
   $ npm start
