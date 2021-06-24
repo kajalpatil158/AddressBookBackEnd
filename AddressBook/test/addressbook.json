@@ -18,5 +18,15 @@
         "lastName": "Patil",
         "emailId": "Snehal@gmail.com",
         "password": "Snehal@17"
+    },
+    "AddressBookData": {
+        "firstName": "Krishana",
+        "lastName": "Patil",
+        "address": "Ravet",
+        "city": "Pune",
+        "state": "Maharastra",
+        "phoneNumber": "9860668990",
+        "emailId": "kk10@gmail.com",
+        "password": "Kartik@11"
     }
 }

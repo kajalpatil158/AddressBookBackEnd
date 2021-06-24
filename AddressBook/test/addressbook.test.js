@@ -107,3 +107,18 @@ beforeEach(done => {
             done();
         });
 });
+describe("/GET /findAll", () => {
+    it("giventoken_Whenvalid_Shouldretrivedatawithstatus=200andsuccess=truewithSuccessfullyretrivedatamessage", done => {
+        chai
+            .request(server)
+            .get("/addressBook")
+            .set('Authorization', 'bearar ' + token)
+            .end((error, res) => {
+                res.should.have.status(200);
+                res.body.should.be.property('success').eq(true);
+                res.body.should.have.property('message').eq("All Address Book Data Is Here")
+                res.body.should.have.property('data')
+                done();
+            });
+    });
+});
