@@ -57,9 +57,9 @@ describe('POST/adduser', () => {
             .post('/adduser')
             .send(addressbookData)
             .end((error, res) => {
-                res.should.have.status(400);
+                res.should.have.status(500);
                 res.body.should.be.property('success').eq(false);
-                res.body.should.be.property('message')
+                res.body.should.be.property('message').eq("Eroor Occured While Creating Address Book Data");
                 done();
             });
     });
