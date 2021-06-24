@@ -8,9 +8,15 @@
         "password": "Rutuuu18@"
     },
     "userData": {
-        "firstName": "Akash",
-        "lastName": "Bhosle",
-        "emailId": "Akash@gmail.com",
-        "password": "Akash@11"
+        "firstName": "Snehal",
+        "lastName": "Patil",
+        "emailId": "Snehal@gmail.com",
+        "password": "Snehal@1788"
+    },
+    "userWrongData": {
+        "firstName": "Snehal",
+        "lastName": "Patil",
+        "emailId": "Snehal@gmail.com",
+        "password": "Snehal@17"
     }
 }
