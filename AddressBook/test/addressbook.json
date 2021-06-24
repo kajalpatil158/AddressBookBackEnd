@@ -1,0 +1,16 @@
+{
+    "userLoginData": {
+        "emailId": "Rutu@gmail.com",
+        "password": "Rutuuu18@11"
+    },
+    "userLoginWrongData": {
+        "emailId": "Rutu@gmail.com",
+        "password": "Rutuuu18@"
+    },
+    "userData": {
+        "firstName": "Akash",
+        "lastName": "Bhosle",
+        "emailId": "Akash@gmail.com",
+        "password": "Akash@11"
+    }
+}
