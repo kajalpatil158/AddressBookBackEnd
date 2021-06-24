@@ -148,5 +148,19 @@ describe("/GET /findAll", () => {
                 done();
             });
     });
+});
 
+describe("/GET /findOne", () => {
+    it("giventoken_Whenvalid_Shouldretriveadatabyiswithstatus=200andsuccess=truewithsuccessfullyretrivedatamessage", done => {
+        chai
+            .request(server)
+            .get("/addressBook/" + addressbooktest.AddressBookDataId.Id)
+            .set('Authorization', 'bearer ' + token)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.have.property('success').eq(true);
+                res.body.should.have.property('data');
+                done();
+            });
+    });
 });
