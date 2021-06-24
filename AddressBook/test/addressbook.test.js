@@ -163,4 +163,17 @@ describe("/GET /findOne", () => {
                 done();
             });
     });
+
+    it("giventoken_Wheninvalid_Shouldnotretrivedatawithstatus=404andsuccess=false", done => {
+        chai
+            .request(server)
+            .get("/addressBook/" + addressbooktest.AddressBookDataWrongId.Id)
+            .set('Authorization', 'bearer ' + token)
+            .end((err, res) => {
+                res.should.have.status(404);
+                res.body.should.have.property('success').eq(false);
+                res.body.should.have.property('message');
+                done();
+            });
+    });
 });
