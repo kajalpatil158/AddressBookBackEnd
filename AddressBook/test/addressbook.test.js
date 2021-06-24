@@ -177,3 +177,20 @@ describe("/GET /findOne", () => {
             });
     });
 });
+
+describe("/put /update /Id", () => {
+    it("givendatacheckwithtoken_Whentokenisvalid_Shouldreturnstatus=200andsuccess=true", done => {
+        const newData = addressbooktest.AddressBookData;
+        chai
+            .request(server)
+            .put("/update/" + addressbooktest.AddressBookDataId.Id)
+            .set('Authorization', 'bearar ' + token)
+            .send(newData)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.have.property('success').eq(true);
+                res.body.should.have.property('message').eq("Address Book Data updated successfully");
+                done();
+            });
+    });
+});
