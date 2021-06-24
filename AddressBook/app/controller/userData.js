@@ -12,7 +12,7 @@ class UserInfo {
         if (validationUser.error) {
             return res.status(400).send({
                 success: false,
-                message: validationUser.error.message
+                message: "validationUser.error.message"
             });
         }
         let userData = req.body;

@@ -29,6 +29,15 @@
         "emailId": "kk10@gmail.com",
         "password": "Kartik@11"
     },
+    "AddressBookWrongData": {
+        "firstName": "Krishana",
+        "lastName": "Patil",
+        "address": "Ravet",
+        "city": "Pune",
+        "state": "Maharastra",
+        "phoneNumber": "9860668990",
+        "emailId": "kk10@gmail.com"
+    },
     "AddressBookDataId": {
         "Id": "60cf3931449afc0674f499fd"
     },

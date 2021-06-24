@@ -37,7 +37,7 @@ describe('POST/login', () => {
 });
 
 describe('POST/addData', () => {
-    it('givenuserisnot_Whenadded_Shouldreturnstatus=404andsuccess=false', (done) => {
+    /*it('givenuserisnot_Whenadded_Shouldreturnstatus=404andsuccess=false', (done) => {
         const addressbookData = addressbooktest.AddressBookData;
         chai.request(server)
             .post('/addData')
@@ -46,6 +46,33 @@ describe('POST/addData', () => {
                 res.should.have.status(200);
                 res.body.should.be.property('success').eq(true);
                 res.body.should.be.property('message').eq("Address Book Data Is Added");
+                done();
+            });
+    });*/
+
+    it('givenuserisnotadded_Whenadded_Shouldreturnstatus=400andsuccess=false', (done) => {
+        const addressbookData = addressbooktest.AddressBookWrongData;
+        chai.request(server)
+            .post('/addData')
+            .send(addressbookData)
+            .end((error, res) => {
+                res.should.have.status(400);
+                res.body.should.be.property('success').eq(false);
+                res.body.should.be.property('message');
+                done();
+            });
+    });
+
+    it('givenuserisnotadded_Whenadded_Shouldreturnstatus=400andsuccess=false', (done) => {
+        const addressbookData = addressbooktest.AddressBookWrongData;
+        chai.request(server)
+            .post('/addData')
+            .send(addressbookData)
+            .end((error, res) => {
+                res.should.have.status(500);
+                res.body.should.be.property('success').eq(false);
+                res.body.should.be.property('error');
+                res.body.should.be.property('message').eq("Eroor Occured While Creating Address Book Data");
                 done();
             });
     });
@@ -60,7 +87,7 @@ describe('POST/adduser', () => {
             .end((error, res) => {
                 res.should.have.status(500);
                 res.body.should.be.property('success').eq(false);
-                res.body.should.be.property('message').eq("Eroor Occured While Creating Address Book Data");
+                res.body.should.be.property('message');
                 done();
             });
     });

@@ -1,0 +1,266 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Address Book Application",
+        "description": "Address Book Registration",
+        "version": "1.0.0"
+    },
+    "host": "localhost:5050",
+    "basePath": "/",
+    "tags": [],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [],
+    "produces": [],
+    "paths": {
+        "/addData": {
+            "post": {
+                "tags": [],
+                "description": "",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/AddressBookData"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [{
+                    "JWT": []
+                }]
+            }
+        },
+        "/addressBook": {
+            "get": {
+                "tags": [],
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [{
+                    "JWT": []
+                }]
+            }
+        },
+        "/addressBook/addressBookId": {
+            "get": {
+                "tags": [],
+                "description": "",
+                "parameters": [{
+                    "name": "addressBookId",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successfull"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [{
+                    "JWT": []
+                }]
+            }
+        },
+        "/update/addressBookId": {
+            "put": {
+                "tags": [],
+                "description": "",
+                "parameters": [{
+                        "name": "addressBookId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "newData",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AddressBookData"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [{
+                    "JWT": []
+                }]
+            }
+        },
+        "/delete/addressBookId": {
+            "delete": {
+                "tags": [],
+                "description": "",
+                "parameters": [{
+                    "name": "addressBookId",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "security": [{
+                    "JWT": []
+                }]
+            }
+        },
+        "/adduser": {
+            "post": {
+                "description": "",
+                "parameters": [{
+                    "name": "Add User",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/UserData"
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [],
+                "description": "",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Login"
+                    }
+                }],
+                "responses": {
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "JWT": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "AddressBookData": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "number"
+                },
+                "emailId": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserData": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "emailId": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Login": {
+            "type": "object",
+            "properties": {
+                "emailId": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
