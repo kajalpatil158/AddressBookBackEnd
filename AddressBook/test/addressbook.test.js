@@ -208,3 +208,18 @@ describe("/put /update /Id", () => {
             });
     });
 });
+
+describe("/delele/Id", () => {
+    it("givenvalidtoken_Whenthatpass_Shoulddeletedatastatus=200success=true", done => {
+        chai
+            .request(server)
+            .delete("/delete/" + addressbooktest.AddressBookDataId.Id)
+            .set('Authorization', 'bearar ' + token)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.have.property('success').eq(true);
+                res.body.should.have.property('message');
+                done();
+            });
+    });
+});
