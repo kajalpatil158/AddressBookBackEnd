@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon server.js",
-        "test": " mocha ./test/**/*.js --exit --inspect=0.0.0.0:9229 "
+        "test": " nyc mocha ./test/**/*.js --exit --inspect=0.0.0.0:9229 --timeout 120000 "
     },
     "author": "\"Kajal Patil\"",
     "license": "ISC",
@@ -24,9 +24,10 @@
     },
     "devDependencies": {
         "chai": "^4.3.4",
+        "chai-http": "^4.3.0",
         "mocha": "^9.0.1",
         "nodemon": "^2.0.7",
-        "chai-http": "^4.3.0",
+        "nyc": "^15.1.0",
         "supertest": "^6.1.3"
     }
 }
