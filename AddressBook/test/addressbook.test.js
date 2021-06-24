@@ -222,4 +222,16 @@ describe("/delele/Id", () => {
                 done();
             });
     });
+    it("givenvalidtoken_Whenthatpass_Shoulddeletedatastatus=404success=false", done => {
+        chai
+            .request(server)
+            .delete("/delete/" + addressbooktest.AddressBookDataWrongId.Id)
+            .set('Authorization', 'bearar ' + token)
+            .end((error, res) => {
+                res.should.have.status(404);
+                res.body.should.have.property('success').eq(false);
+                res.body.should.have.property('message');
+                done();
+            });
+    });
 });
