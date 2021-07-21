@@ -8,7 +8,7 @@ class AddressBook {
      * @param req is request sent from http
      * @param res is used to send the response
      */
-    create = (req, res) => {
+    createAddressBookData = (req, res) => {
         var validationAddressBook = addressBookData.addressbookData.validate(req.body);
         logger.info(req.body);
         if (validationAddressBook.error) {
@@ -39,7 +39,7 @@ class AddressBook {
      * @param res is used to send the response
      */
 
-    findAll = (req, res) => {
+    findAllAddressBookData = (req, res) => {
         addressBookService.findAll((error, addressBookData) => {
             if (error) {
                 return res.status(400).send({
@@ -60,7 +60,7 @@ class AddressBook {
      * @param res Is Used To Take A Http Responce.
      */
 
-    findOne = (req, res) => {
+    findOneAddressBookData = (req, res) => {
         let addressDataId = req.params.addressBookId;
         addressBookService.findById(addressDataId, (error, addressBookData) => {
             if (error) {
@@ -80,7 +80,7 @@ class AddressBook {
      * @param req Is Used To Send Http Request
      * @param res Is Used To Take A Http Responce.
      */
-    update = (req, res) => {
+    updateAddressBookData = (req, res) => {
         let addressDataId = req.params.addressBookId;
         addressBookService.updateByID(req.body, addressDataId, (error, newData) => {
             if (error) {
@@ -101,7 +101,7 @@ class AddressBook {
      * @param req Is Used To Send Http Request
      * @param res Is Used To Take A Http Responce.
      */
-    delete = (req, res) => {
+    deleteAddressBookData = (req, res) => {
         let addressDataId = req.params.addressBookId;
         addressBookService.deleteById(addressDataId, (error, addressBookData) => {
             if (error) {

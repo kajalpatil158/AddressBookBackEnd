@@ -7,7 +7,7 @@ class UserInfo {
      * @param req is request sent from http
      * @param res is used to send the response
      */
-    create = (req, res) => {
+    userRegistrationDetails = (req, res) => {
         var validationUser = validateData.userData.validate(req.body);
         if (validationUser.error) {
             return res.status(400).send({
