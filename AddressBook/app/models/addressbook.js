@@ -30,6 +30,7 @@ const AddressBookSchema = mongoose.Schema({
     phoneNumber: {
         type: String,
         required: true,
+        unique: true,
         validate: /^[0-9]{10}$/
     },
     emailId: {

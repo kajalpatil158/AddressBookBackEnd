@@ -20,7 +20,7 @@ class UserInfo {
             if (error) {
                 return res.status(500).send({
                     success: false,
-                    error: error,
+                    logger: error,
                     message: "Eroor Occured While Creating Address Book Data",
                 })
             }
@@ -32,25 +32,37 @@ class UserInfo {
         })
     }
 
+
+
     /**
      * @Description - login User Data.
      * @param req is request sent from http
      * @param res is used to send the response
      */
-    login = (req, res) => {
-        let userInfo = userField.userData.validate(req.body);
-        userService.getUserByEmail(userInfo.value).then((data) => {
-            res.send({
-                success: true,
-                message: "User Login Successfull!!",
-                token: data
-            });
-        }).catch((err) => {
-            res.status(404).send({
-                success: false,
-                message: "error"
-            });
-        });
+    /*8 login = (req, res) => {
+         let userInfo = userField.userData.validate(req.body);
+         userService.getUserByEmail(userInfo.value).then((data) => {
+             res.send({
+                 success: true,
+                 message: "User Login Successfull!!",
+                 token: data
+             });
+         }).catch((err) => {
+             res.status(404).send({
+                 success: false,
+                 message: "error"
+             });
+         });
+     }*/
+    async login(req, res) {
+        try {
+            let userInfo = userField.userData.validate(req.body);
+            const userInformation = await userService.getUserByEmail(userInfo.value);
+            res.status(201).send(userInformation);
+
+        } catch (e) {
+            res.status(400).send(e);
+        }
     }
 }
 

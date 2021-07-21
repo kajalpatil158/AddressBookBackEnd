@@ -20,14 +20,14 @@
         "password": "Snehal@17"
     },
     "AddressBookData": {
-        "firstName": "Krishana",
+        "firstName": "Kittu",
         "lastName": "Patil",
         "address": "Ravet",
         "city": "Pune",
         "state": "Maharastra",
         "phoneNumber": "9860668990",
-        "emailId": "kk10@gmail.com",
-        "password": "Kartik@11"
+        "emailId": "kittu10@gmail.com",
+        "password": "$2b$10$j7lE1fGL84K8ClKUQLffIOcTdw8islGg.9KvEtmBfQ2kQ1DR/Wr/S"
     },
     "AddressBookWrongData": {
         "firstName": "Krishana",

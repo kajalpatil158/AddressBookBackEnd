@@ -1,5 +1,5 @@
 const addressBookService = require('../service/addressbook.js');
-const addressBookModel = require('../models/addressbook.js');
+const logger = require('../../config/logger.js');
 const addressBookData = require('../middleware/validation.js');
 
 class AddressBook {
@@ -10,7 +10,7 @@ class AddressBook {
      */
     create = (req, res) => {
         var validationAddressBook = addressBookData.addressbookData.validate(req.body);
-        console.log(req.body);
+        logger.info(req.body);
         if (validationAddressBook.error) {
             return res.status(400).send({
                 success: false,
@@ -18,7 +18,6 @@ class AddressBook {
             });
         }
         let addressbookData = req.body;
-        //console.log(addressBookInfo);
         addressBookService.create(addressbookData, (error, validationAddressBook) => {
             if (error) {
                 return res.status(500).send({
@@ -27,7 +26,7 @@ class AddressBook {
                     message: "Eroor Occured While Creating Address Book Data",
                 })
             }
-            res.status(200).send({
+            return res.status(200).send({
                 success: true,
                 message: "Address Book Data Is Added",
                 data: validationAddressBook

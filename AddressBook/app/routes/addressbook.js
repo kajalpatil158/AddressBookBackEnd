@@ -10,13 +10,13 @@ module.exports = (app) => {
     app.get('/addressBook', validate.checkToken, AddressBook.findAll);
 
     // Retrieve a single Address Book Data 
-    app.get('/addressBook/:addressBookId', AddressBook.findOne);
+    app.get('/addressBook/:addressBookId', validate.checkToken, AddressBook.findOne);
 
     // Update a Address Book Data 
-    app.put('/update/:addressBookId', AddressBook.update);
+    app.put('/update/:addressBookId', validate.checkToken, AddressBook.update);
 
     // Delete a Address Book Data
-    app.delete('/delete/:addressBookId', AddressBook.delete);
+    app.delete('/delete/:addressBookId', validate.checkToken, AddressBook.delete);
 
     // Created And Added User
     app.post('/adduser', UserData.create);

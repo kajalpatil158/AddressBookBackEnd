@@ -58,7 +58,5 @@ class userDataModel {
             return (!data) ? callBack("User Not Exist ", null) : callBack(null, data);
         })
     }
-
 }
-
 module.exports = new userDataModel();

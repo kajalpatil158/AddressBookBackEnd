@@ -63,7 +63,7 @@
                 }]
             }
         },
-        "/addressBook/addressBookId": {
+        "/addressBook/{addressBookId}": {
             "get": {
                 "tags": [],
                 "description": "",
@@ -92,7 +92,7 @@
                 }]
             }
         },
-        "/update/addressBookId": {
+        "/update/{addressBookId}": {
             "put": {
                 "tags": [],
                 "description": "",
@@ -127,7 +127,7 @@
                 }]
             }
         },
-        "/delete/addressBookId": {
+        "/delete/{addressBookId}": {
             "delete": {
                 "tags": [],
                 "description": "",

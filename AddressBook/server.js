@@ -27,5 +27,5 @@ app.get('/', (req, res) => {
 require('./app/routes/addressbook.js')(app);
 
 module.exports = app.listen(5050, () => {
-    console.log('Info', 'Application Is Listening On Port 5050');
+    console.log('Application Is Listening On Port 5050');
 });
