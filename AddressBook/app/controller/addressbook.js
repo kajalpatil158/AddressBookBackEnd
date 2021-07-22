@@ -101,7 +101,7 @@ class AddressBook {
      * @param req Is Used To Send Http Request
      * @param res Is Used To Take A Http Responce.
      */
-    deleteAddressBookData = (req, res) => {
+    removeAddressBookData = (req, res) => {
         let addressDataId = req.params.addressBookId;
         addressBookService.deleteById(addressDataId, (error, addressBookData) => {
             if (error) {

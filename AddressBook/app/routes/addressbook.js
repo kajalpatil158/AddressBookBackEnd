@@ -16,12 +16,12 @@ module.exports = (app) => {
     app.put('/update/:addressBookId', validate.checkToken, AddressBook.updateAddressBookData);
 
     // Delete a Address Book Data
-    app.delete('/delete/:addressBookId', validate.checkToken, AddressBook.deleteAddressBookData);
+    app.delete('/delete/:addressBookId', validate.checkToken, AddressBook.removeAddressBookData);
 
     // Created And Added User
     app.post('/adduser', UserData.userRegistrationDetails);
 
     // Login User
-    app.post('/login', UserData.login);
+    app.post('/login', UserData.loginUser);
 
 }
