@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon server.js",
-        "pretest": "eslint --ignore-path .gitignore .",
+        "lint": "eslint .",
         "test": " nyc mocha ./test/**/*.js --exit --inspect=0.0.0.0:9229 --timeout 120000 "
     },
     "author": "\"Kajal Patil\"",
@@ -24,6 +24,7 @@
         "winston": "^3.3.3"
     },
     "devDependencies": {
+        "babel-eslint": "^10.1.0",
         "chai": "^4.3.4",
         "chai-http": "^4.3.0",
         "eslint": "^7.31.0",

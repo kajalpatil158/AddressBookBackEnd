@@ -16,7 +16,7 @@ module.exports = (app) => {
     app.put('/update/:addressBookId', validate.checkToken, AddressBook.updateAddressBookData);
 
     // Delete a Address Book Data
-    app.delete('/delete/:addressBookId', validate.checkToken, AddressBook.removeAddressBookData);
+    app.delete('/delete/:addressBookId', validate.checkToken, AddressBook.deleteAddressBookData);
 
     // Created And Added User
     app.post('/adduser', UserData.userRegistrationDetails);

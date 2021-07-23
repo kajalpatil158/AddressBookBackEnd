@@ -101,20 +101,16 @@ class AddressBook {
      * @param req Is Used To Send Http Request
      * @param res Is Used To Take A Http Responce.
      */
-    removeAddressBookData = (req, res) => {
-        let addressDataId = req.params.addressBookId;
-        addressBookService.deleteById(addressDataId, (error, addressBookData) => {
-            if (error) {
-                return res.status(404).send({
-                    success: false,
-                    message: "Address Book Id not found"
-                })
+    deleteAddressBookData = async(req, res) => {
+        try {
+            if (!req.params.addressBookId) {
+                return res.status(400).send();
             }
-            res.send({
-                success: true,
-                message: "Address Book Data Deleted Successfully"
-            })
-        })
+            const deleteAddressBookData = await addressBookService.deleteById(req.params.addressBookId);
+            res.send(deleteAddressBookData);
+        } catch (e) {
+            res.status(500).send(e);
+        }
     }
 }
 module.exports = new AddressBook();

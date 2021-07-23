@@ -50,7 +50,10 @@ class AddressBookService {
      */
     deleteById = (addressBookId, callBack) => {
         AddressModel.deleteById(addressBookId, (error, data) => {
-            return (error) ? callBack(error, null) : callBack(null, data);
+            if (error) {
+                callBack(error, null)
+            }
+            callBack(null, data);
         });
     }
 }
